@@ -325,7 +325,6 @@ nav li a:hover{
   font-weight: 300;
   font-size: 1.1em;
   background-image: url(../images/debut_light.png);
-  max-width: 850px;
   padding: 8px 25px;
   border-radius: 3px;
   box-shadow: 0 10px 10px 5px rgba(0,0,0,0.3);
@@ -369,7 +368,7 @@ nav li a:hover{
 }
 #post p{
   margin: 8px auto;
-  width: 75%;
+  width: 65%;
   line-height: 1.5em;
   text-indent: 2em;
   text-align: justify;
