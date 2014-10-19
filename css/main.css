@@ -320,12 +320,12 @@ nav li a:hover{
 }
 #post{
   margin: 0px auto;
-  margin-bottom: 25px;
   font-family: 'Cardo', serif;
   font-weight: 300;
   font-size: 1.1em;
   background-image: url(../images/debut_light.png);
   padding: 8px 25px;
+  padding-bottom: 40px;
   border-radius: 3px;
   box-shadow: 0 10px 10px 5px rgba(0,0,0,0.3);
 }
