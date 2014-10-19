@@ -1,0 +1,101 @@
+---
+layout: post
+---
+        <h4><span>Enumerable#group_by</span></h4>
+        <p>
+        Thanks for joining me once again, on this journey of learning to code.
+        This weeks topic is the mysterious <b>"group_by"</b> method in Ruby.
+        This method is built into Ruby's oh so powerful <b>Enumerable</b> module. The methods
+        in the enumerable module are designed to help you sort, search, select and traverse 
+        through data. Enumerable is included into the Array and Hash classes by default, but you can add it to any class you want as long as you define an "each" method for that class and an "<=>" operator.
+        </p>
+        <p>
+          The group_by method is a good example of the types of methods you will find in Enumerable as it allows you to organize a set of objects in any way you want. Most methods in Enumerable are kind of like this, allowing you to access objects in a list or collection according to some criteria that you set. 
+        </p>
+        <p>
+          group_by works by taking a collection of values, and then organizing it according to criteria you specify. Your criteria are written in an accompanying code block, and group_by will pass you back a result hash. To generate this result 
+          hash, group_by runs your block of code for each member of the collection that you called it on. The result of evaluating each block is turned into a hash key, and the actual value being tested is stored in an array as the hash value. If multiple values in the collection evaluate to the same result, they are appended to the array at the hash value. This lets you easily access all the values in the collection that made the block evaluate to the same thing.
+        </p>
+        <p>
+          Let's take a look at some examples and it should become clear. The following code 
+          is going to <b>group</b> a list of numbers <b>by</b> whether they are odd or even.
+          Feel free to copy and paste in irb if my amazing terminal simulation is not enough.
+        </p>
+        <div class="code">
+        <p>
+          test = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]<br>
+          test.group_by{ |value| value % 2 == 0}<br>
+          
+        </p>
+      </div>
+        <p>
+          What would you expect this code to do? Lets take it one step at a time to figure it out! First we can see the variable called test being set to an array of the numbers 1-10. Next we call group_by on it and pass in a code block that will check
+          if each value modulus 2 is equal to 0. This evaluation can only have 2 results, true or false. Now let's see what we actually get back:
+        </p>
+      <div class="code">
+        <p>
+          <span class="output">{false=>[1, 3, 5, 7, 9], true=>[2, 4, 6, 8, 10]}</span><br>
+        </p>
+      </div>
+      <p>
+        As you can see, we get back a hash, with the keys of "true" and "false". These are the only 2 possible evaluations of the block we passed in. The values of each key are also exactly what you'd expect. The odd numbers are under the key "false" and the even numbers are under "true". Let's try one more example and call it a day.
+      </p>
+      <div class="code">
+        <p>
+          test = [ "apple" , "orange", "cat", "dog", "egg", "bacon", "sausage", "juice", "cereal"]<br><br>
+          test.group_by{|string| string.length}<br><br>
+          <span class="output">{5=>["apple", "bacon", "juice"], 6=>["orange", "cereal"], 3=>["cat", "dog", "egg"], 7=>["sausage"]}</span><br>
+        </p>
+      </div>
+        <p>
+          This example is slightly different than the first. We are not expecting true or false back, we are expecting the length of each string. Just like before though, 
+          we see the evaluations of the block as the hash keys, and all the values that returned that result as the keys values.
+        </p>
+        <p>
+          So by now I think you have a good idea of what this method can do. Now lets get real and see some real world uses of this. Take a look at this next example:
+        </p>
+        <div class="code">
+        <p>
+          
+          test = { key1: ["oranges", "apples", "grapes"], key2: [ "sausage", "ham", "steak"], key3: ['twigs', 'leaves' , 'grass'], key4: ['brocolli','spinach','carrots'], key5: ['mcdonalds','burger king', 'wendys','taco bell'], key6: ['cake','donuts','ice cream'], key7: ['soup', 'stew', 'broth'], key8: ['pizza', 'calzone', 'spaghetti'], key9: ['lo mein', 'dumplings', 'fried rice'], key10: ['taco', 'guacamole', 'burrito'], key11: ['cherry pie', 'apple pie', 'rhubarb pie'], key12: ['tabasco', 'sriracha'], key13: ['potato chips', 'popcorn', 'doritos'], key14: ['reeses', 'hershey', 'snickers'], key15: ['twinkies', 'oreos', 'yodels'], key16: ['fried chicken', 'biscuits', 'gravy'], key17: ['ramen', 'sushi', 'takoyaki'], key18: ['waffles', 'bagels', 'donuts'], key19: ['potato chips', 'popcorn', 'doritos'], key20: ['taco', 'guacamole', 'burrito'], key21: ['pizza', 'calzone', 'spaghetti'], key22: ['filler', 'spam', 'bologna'], key23: ['snapple', 'coke', 'pepsi'], key24: ['ritz', 'triscuit', 'crackers'], key25: ['tea', 'coffee', 'milk'], key26: ['jam', 'butter', 'nutella']}<br>
+        </p>
+      </div>
+      <p>
+        Look at that eye glazing wall of text. Somewhere in this jungle, the word donuts appears in 2 different arrays. Here's how we can find it quick with group_by:
+      </p>
+      <div class="code">
+        <p>
+          test.group_by{|key, value| value.include?("donuts")}<br>
+        </p>
+      </div>
+        <p>What do you think this will return? That's right, it's going to return a hash with the keys 'true' and 'false'. It's still not so helpful if you have to hunt through the output, because it looks like this:  </p>
+        <div class="code">
+        <p>
+          <span class="output">{false=>[[:key1, ["oranges", "apples", "grapes"]], [:key2, ["sausage", "ham", "steak"]], [:key3, ["twigs", "leaves", "grass"]], [:key4, ["brocolli", "spinach", "carrots"]], [:key5, ["mcdonalds", "burger king", "wendys", "taco bell"]], [:key7, ["soup", "stew", "broth"]], [:key8, ["pizza", "calzone", "spaghetti"]], [:key9, ["lo mein", "dumplings", "fried rice"]], [:key10, ["taco", "guacamole", "burrito"]], [:key11, ["cherry pie", "apple pie", "rhubarb pie"]], [:key12, ["tabasco", "sriracha"]], [:key13, ["potato chips", "popcorn", "doritos"]], [:key14, ["reeses", "hershey", "snickers"]], [:key15, ["twinkies", "oreos", "yodels"]], [:key16, ["fried chicken", "biscuits", "gravy"]], [:key17, ["ramen", "sushi", "takoyaki"]], [:key19, ["potato chips", "popcorn", "doritos"]], [:key20, ["taco", "guacamole", "burrito"]], [:key21, ["pizza", "calzone", "spaghetti"]], [:key22, ["filler", "spam", "bologna"]], [:key23, ["snapple", "coke", "pepsi"]], [:key24, ["ritz", "triscuit", "crackers"]], [:key25, ["tea", "coffee", "milk"]], [:key26, ["jam", "butter", "nutella"]]], true=>[[:key6, ["cake", "donut", "ice cream"]], [:key18, ["waffles", "bagels", "donut"]]]}</span><br>
+        </p>
+        </div>
+        <p>
+          So what do we do if we just want the results where the test was true? You can see
+          towards the bottom of the output, the 'true' key has the entries we're after
+          but this is pretty jumbled and unhelpful if you're trying to debug or program something. Instead we can try this out:
+        </p>
+        <div class="code">
+        <p>
+          test.group_by{|key, value| value.include?("donuts")}[true]<br>
+        </p>
+        </div>
+        <p>
+          Take a guess at what that's going to do. You're probably right.
+        </p>
+        <div class="code">
+        <p>
+          <span class='output'>[[:key6, ["cake", "donut", "ice cream"]], [:key18, ["waffles", "bagels", "donut"]]] </span><br>
+        </p>
+        </div>
+        <p>
+          You get back the 2 entries in the has for which the code block evaluated to true, and nothing else! This works because Ruby is evaluating the statement from left to right. The first part of the expression up to the end of the code block evaluates to a hash with the keys true and false. Then Ruby gets to the '[true]' part of the statement. Since it's now right next to a hash, ruby goes to the 'true' key of the hash and you get back just what you wanted. 
+        </p>
+        <p>
+          Hope you enjoyed this journey into one of Ruby's methods. See what other creative ways you can think of to use this nifty feature!
+        </p>
+

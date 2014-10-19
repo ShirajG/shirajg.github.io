@@ -1,0 +1,55 @@
+---
+layout: post
+---
+        <h4><span>Optimizing SQL Queries</span></h4>
+        <p>
+          For this weeks technical post, I've chosen to write about optimizing the efficiency of SQL queries. SQL is the basic language used to fetch data from databases. The reason we need this language is because databases are huge. Most databases in the real world are filled with millions, billions, or even trillions of records(data entries). It would be extremely inefficient to have to hunt through a database manually trying to find any piece of data. SQL lets us use logic to fetch only the relevant pieces of data that we need from a database. Just because we use SQL does not guarantee that our queries will be optimal. In fact there are many way to create extremely inefficient queries that will slow down your information requests, and cause your program to run slowly when it tries to access data. This post will go through some of the common mistakes to avoid. 
+        </p>
+        <p>
+          One of the most common inefficiencies in SQL queries is the use of the * operator in statements. The * tells the database to fetch EVERY column in a database. In a small database with only a few columns and a few records, this is not such a big deal, however once you scale up to working on a DB with hundreds of columns and millions of records, this can easily eat up time and resources, as every query that uses this operator will need to read through the entire database. A better way is to specify the column names that you <i>actually</i> need.
+        </p>
+      <div class="code">
+        <p>
+          #BAD! :( <br>
+          SELECT * <br> FROM huge_table<br><br>
+          #GOOD :)<br>
+          SELECT column_you_need, another_col  <br> FROM huge_table <br>
+        </p>
+      </div>
+      <p>
+        On a related note, the use of the % wildcard operator in text matching can also be problematic. Specifying a wildcard at both the beginning and end of a string will cause the DB to read through every record in the column to see if it contains the searched for value somewhere inside it. Specifying a wildcard at the beginning of a string also has a similar effect, the DB needs to scan through the entire string to make sure the searched for pattern does not exist in the string. Limiting your use of the % to the end of the string will help to speed up your query, as the DB can just check the first letter of the record, and move on if no match is found, it will only evaluate the entire record if the record starts with the specified string. Using a wildcard at the end of the string also lets it still be indexable, which is discussed next.
+      </p>
+      <div class="code">
+        <p>
+          #BAD! :( <br>
+          SELECT column <br> FROM huge_table<br>
+          WHERE column LIKE "%a%"<br> <br>
+          #GOOD :)<br>
+          SELECT column <br> FROM huge_table<br>
+          WHERE column LIKE "a%"<br> <br>
+        </p>
+      </div>
+      <p>
+        One of the best ways to speed up queries in large databases is to use Indexes. Indexes let the database quickly jump to areas in a column close to where relevant data is located. Let's look at the example of a phone book. If we wanted to find someone's number whose last name began with 'Y' what would we do? That's right, we'd flip right towards the back of the book, maybe even look to see if there was a tab for the letter 'Y'. Using indexes lets us achieve this same behavior when running a DB query, the DB now knows what area the different ranges start in, and can just scan the appropriate range. Without having indexes set up, the DB has to start at 'A' and just reads through every entry until it gets to the correct entry in the 'Y' section. This is a huge waste of time and processing. As I mentioned above, indexing will also let your wildcard lookups perform faster, as long as you specify the starting letter/s because the DB can now jump to the appropriate starting range and scan from there. Indexing lets you access data much more efficiently, so you should make it a point to use it!
+      </p>
+      <p>
+        Another benefit of using indexes, is that your comparisons are now much faster! Without indexing, if you wanted to check if a column had a value greater than a certain value the DB would have to check through the values until it hit a value greater than the specified value. With indexing enabled, it can now jump directly to a range very close to the value you specify, and then start returning those. The main logic behind these optimizations is to reduce the number of records that the DB has to read through to get to the info you want.
+      </p>
+      <p>
+        One of the simplest techniques you can use to speed up your queries, is to make sure your DB is set up properly, and uses the smallest possible data types for its different columns. Allocating too much space for each field can lead to a huge increase in memory and disk consumption for no good reason. In a table of 25 million records, an extra 1 kilobit per record adds up to a whopping 3.125 gigabytes of wasted space in your DB. It should be a priority to keep your DB field sizes as small as they can be in order to maximize the amount of results that can be stored in memory, thus minimizing hard disk accesses which are often orders of magnitude slower than fetching from memory.
+      </p>
+      <p>
+        A more advanced technique for speeding up your queries is to think them through in the order that your DB is going to evaluate them. What this means is, you should structure your queries in a way such that the database does as few comparisons as possible in order to get the info you need. If you pull out large, general chunks of data, you're going to have to run further comparisons on that data to get to the info you need. You can prevent this wasted time and effort by structuring your queries in a logical way. This approach requires some forethought and a good understanding of the DB's structure and the order in which it evaluates queries, but it is well worth putting the effort into. As an example, lets say I had the social security number, name, birthday and occupation of all working adults in the US, and I wanted to find only plumbers who were over 40. We could just query for everyone whose age is over 40 and then see if they were a plumber, but that's not efficient because the set of records that would be returned for all people over 40 would be huge, and a large amount of that would have nothing to do with the purpose of our query. Instead a more efficient solution would be to select all plumbers first, and then just select those over 40 from that result. This keeps the amount of extra data that had to be retrieved from the database to a minimum, while still getting the info we were after.
+      </p>
+      <p>
+        These were the best and most generally applicable ways to optimize your queries that I found. I'm sure as I gain experience with SQL I'll have some more thoughts on this topic.
+      </p>
+
+
+
+
+
+
+
+
+</html>

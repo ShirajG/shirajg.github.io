@@ -1,0 +1,174 @@
+---
+layout: post
+---
+        <h4><span>Keepin' it Classy!</span></h4>
+        <p>
+          This weeks technical post is all about Classes! I'm going to be using 
+          Ruby for the examples, but the general concepts can apply to any object oriented language. Let's get started!
+        </p>
+        <p>
+          What are Classes you may be wondering? In simple terms, they are a concept that
+          programmers use to group variables and functions together in a logical way. Let's
+          say you wanted to create a program that needs to keep track of lots of different
+          data about your music collection. You could go ahead and write out every album you own as a hash, with keys for artist, title, rating and so on.
+        </p>
+        <div class="code">
+        <p>
+          album1={artist: "Prince", title: "Purple Rain", year: 1984, rating: 4}<br><br>
+          album2={artist: "Michael Jackson", title: "Thriller", year: 1982, rating: 4.5}<br><br>
+          album3={artist: "Frank Zappa", title: "Hot Rats", year: 1969, rating: 3.5}
+          <br>
+        </p>
+      </div>
+        <p>
+          This may work if you only have a few albums, but what happens when you have thousands of albums? You don't want to have thousands of hashes floating
+          around with no relation to each other. This is where Classes can come in and help you organize your data. Let's take a look:
+        </p>
+        <div class="code">
+        <p>
+          class AlbumCollection<br>
+          &nbsp;&nbsp;def initialize <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;@albums = {}<br>
+          &nbsp;&nbsp;end<br><br>
+          &nbsp;&nbsp;def add (title, artist, year, rating) <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;@albums[title] = {artist: artist, year: year, rating: rating}<br><br>
+          &nbsp;&nbsp;end<br>
+          end
+          <br>
+        </p>
+      </div>
+      <p>
+        You now have a Class called AlbumCollection to store your albums in! This class is pretty lean right now, all we have are the two methods initialize and add. The initialize method creates an instance variable that is an empty hash to store all our albums in. The add method expects you to supply it with 4 pieces of information: artist, title, year and rating, which it will then store in the instance variable "@albums". You can think of instance variables as variables that are only accessible within the class they are in. At first glance this may not seem like a big difference, you may even be thinking that it looks like a lot of hassle just to end up with pretty much the same thing as the original hash. Let's take a look at why this is much better in the long run.
+      </p>
+      <p>
+        Let's say I wanted to start a new album collection using this new class. What would that look like? It would look like this:
+      </p>
+      <div class="code">
+        <p>
+          my_collection = AlbumCollection.new<br><br>
+          <span class="output">&#35;&lt;AlbumCollection:0x00000002b15128 @albums={}&gt;</span>
+          <br>
+        </p>
+      </div>
+      <p>
+        I've just created a new AlbumCollection object called "my_collection". It's going to have access to all of the methods defined in the class. You can also see in the
+        return statement that the @albums instance variable has been created, and is an empty hash. Now lets say I wanted to store my first album. How would that work?
+      </p>
+      <div class="code">
+        <p>
+          my_collection.add("Thriller", "Michael Jackson", 1983, 4.5)<br><br>
+          <span class="output">{:artist=>"Michael Jackson", :year=>1983, :rating=>4.5}</span>
+          <br>
+        </p>
+      </div>
+      <p>
+        Success! So what's going on here? We're calling AlbumCollection's <i>instance method</i> on my_collection because my_collection is an <i>instance</i> of the AlbumCollection class. A hash with the key "Thriller" was created and Ruby automatically returns the contents of this hash since it's the last instruction in the method. Let's add a few more albums.
+      </p>
+      <div class="code">
+        <p>
+          my_collection.add("Purple Rain", "Prince", 1984, 4)<br><br>
+          <span class="output">{:artist=>"Prince", :year=>1984, :rating=>4}</span><br><br>
+          my_collection.add("Hot Rats", "Frank Zappa", 1969, 3.5)<br><br>
+          <span class="output">{:artist=>"Frank Zappa", :year=>1969, :rating=>3.5}</span>
+          <br>
+        </p>
+      </div>
+        <p>
+          So things are a bit more organized already, we don't need separate variables for each album anymore. We have a nice variable my_collection that has all the albums 
+          stored inside it. We also now have an easy way to add items to our collection via the add method, and we know that all the albums are going to have a title, artist, year and rating. We know this because the only way to add albums to our list is to use the add method, and the add method <i>requires</i> 4 arguments to successfully run. 
+        </p>
+        <p>
+          Now, you may be wondering how do we actually fish data out of this setup? Thats a great question, so let's get into that. First off, let's take a look at what's inside my_collection right now. 
+        </p>
+      <div class="code">
+        <p>
+          p my_collection<br><br>
+          <span class="output">&#35;&lt;AlbumCollection:0x00000002b15128 @albums={"Thriller"=>{:artist=>"Michael Jackson", :year=>1983, :rating=>4.5}, "Purple Rain"=>{:artist=>"Prince", :year=>1984, :rating=>4}, "Hot Rats"=>{:artist=>"Frank Zappa", :year=>1969, :rating=>3.5}}> </span>
+          <br>
+        </p>
+      </div>
+      <p>
+        We can now see the entire data structure contained in the my_collection object. Just as we thought, we can see the @albums hash with all the appropriate values in it. This may be good to verify that the contents are being set up as we wanted, but it's not good in terms of giving us usable output. For instance, as it is now, there's no way to pull out specific albums from the hash. If you try asking ruby for "@albums" it will have no idea what you want. To be able to access that value from outside of the class we're going to have to write a new instance method. Don't worry, it's not hard.
+        Here's how to do it:
+      </p>
+      <div class="code">
+        <p>
+          class AlbumCollection<br>
+          &nbsp;&nbsp;def get_albums<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;@albums<br>
+          &nbsp;&nbsp;end<br>
+          end<br>
+        </p>
+      </div>
+      <p>
+        See? Not hard at all. Ruby allows you to reopen class definitions and add 
+        methods to the class, or even change existing methods. It's as simple as the above.
+        We've now added a get_albums instance method to our class. This is a special type of
+        method known as a "getter". It's called this because it "gets" a value from inside our class so other methods that are not part of the class can see what's in there.
+        The opposite also exists, and they're called "setter" methods. These let the outside world "set" values in our class. Our add method is an example of a setter method since it's setting variables inside the class according to values passed from outside. Let's try out our new getter method!
+      </p>
+      <div class="code">
+        <p>
+          my_collection.get_albums<br><br>
+          <span class="output">{"Thriller"=>{:artist=>"Michael Jackson", :year=>1983, :rating=>4.5}, "Purple Rain"=>{:artist=>"Prince", :year=>1984, :rating=>4}, "Hot Rats"=>{:artist=>"Frank Zappa", :year=>1969, :rating=>3.5}}</span>
+          <br>
+        </p>
+      </div>
+      <p>
+        Excellent, now we have a way of getting our entire album list out of there. Since the get_albums method returns a hash, we can now just use regular hash syntax to pull values. Like so:
+      </p>
+      <div class="code">
+        <p>
+          my_collection.get_albums["Thriller"]<br><br>
+          <span class="output">{:artist=>"Michael Jackson", :year=>1983, :rating=>4.5}</span>
+          <br>
+        </p>
+      </div>
+      <p>
+        We now have a class designed just to hold lists of albums. This makes keeping track of a whole bunch of different variables unnecessary. All the variables, data, and methods we could ever need will stay neatly compartmentalized within the Class. We've created a nicely usable structure, and methods to access that information. This is still just scratching the surface of classes though. A further use of classes would be to start implementing more advanced instance methods that simulate behaviors you would want. What if we wanted to alphabetize our collection, display a neatly formatted listing, or keep track of the number of albums in the collection? Can you figure out what these instance methods would need to do? Ideally you would want to be able to simulate any behavior a real album collection might have, using your class. 
+      </p>
+      <p>
+        Hope this post has been helpful, now here's one last example, just for fun.
+      </p>
+      <div class="code">
+        <p>
+class Dog<br>
+
+&nbsp;&nbsp;def initialize (name, breed)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@name = name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@breed = breed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@weight = 10<br>
+&nbsp;&nbsp;end<br><br>
+
+&nbsp;&nbsp;def bark <br>
+&nbsp;&nbsp;&nbsp;&nbsp;puts "woof! woof!"<br>
+&nbsp;&nbsp;end<br><br>
+
+&nbsp;&nbsp;def sleep<br>
+&nbsp;&nbsp;&nbsp;&nbsp;puts "ZZZzzz..."<br>
+&nbsp;&nbsp;end<br><br>
+
+&nbsp;&nbsp;def eat<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@weight +=1<br>
+&nbsp;&nbsp;end<br><br>
+
+&nbsp;&nbsp;def run<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@weight -1<br>
+&nbsp;&nbsp;end<br><br>
+
+&nbsp;&nbsp;def display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;puts "#{@name} is a #{@breed} that weighs #{@weight}"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if weight > 200<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "#{@name} needs to be walked more"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "#{@name} is a happy dog"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+&nbsp;&nbsp;end<br><br>
+  
+
+end<br>
+          
+          <br>
+        </p>
+      </div>
+      

@@ -1,0 +1,38 @@
+---
+layout: post
+---
+
+<h4><span>Site Upgrade</span></h4>
+
+<p>
+  For this weeks HTML challenge we were tasked with 
+  transitioning our site over to Jekyll. I had already
+  been putting a decent amount of time into the site, and really
+  wanted to make it look good, but one thing that bothered me
+  about the site was that I would have needed a lot of redundant
+  code to make the site work with the layout I was previously using.
+</p>
+<p>
+  I had set up my site previously to use an embedded iframe to load individual posts in, while leaving the header and navigation area fixed  on top of the iframe. This was because I didn't want to have to repeat the code for the header on each and every blog post, so I thought this approach would be good. Once I go the hang of Jekyll though, it started to make sense to implement a change to the layout.
+</p>
+<p>
+  Since Jekyll makes it really easy to generate your individual posts by piecing together different bits of HTML, I decided to just split the header and nav area off into its own include, and have each post's layout include this bit of html for the nav. This worked out really well, since it lets me achieve the functionality of having a static header, with just the changing posts under it, but it also let's me avoid having to manually repeat code. I can just let Jekyll handle all that and it is flawless.
+</p>
+<p>
+  I also had some trouble understanding Jekyll at first. I didn't really get what the point of it was. I had to follow a very small tutorial that would generate a basic blog to really see what it did. I then just took a look at what was in the different files and folders of the default site. This really helped me start to understand what was going on. As soon as I figured out how {{content}} tags worked it opened up my understanding of the whole thing. I could now take small pieces of HTML and pull together other blocks and turn it into a full page.
+</p>
+<p>
+  I then played around with tweaking some of the default settings based on the info given in the Jekyll documentation.
+  I found a way to actually change how the site displays the post URL's and revamped all the names to just be the title of the post. I thought this was a cool feature, and now if I want to lead anyone to a specific post on my site, I just have to tell them the title of the post, and they can just append that to the end of the URL for my blog.
+</p>
+<p>
+  Remembering the URL to my site is going to be even easier for people now because I also remapped the DNS info of my domain to point to my github.io site. People can now just type in shirajganguly.com and they will right away be taken to my blog. This means that no-one has to remember anything other than my name to get to my site. I think this will be a huge timesaver for anyone looking to check out my site without having to ask me how to get to it.
+</p>
+<p>
+  I also added a small welcome page at the index of my site. I want this to be a nice informative message that all visitors initially land on, and it helps to explain what my goal with the site is, and who I am. I still have not gotten this page to be how I want it, as I find it a little hard to come up with things to write about myself. I also want to add some nice graphics and pictures to this splash page in the future, so that any new visitor will have some eye candy to look at. 
+  I think that will help people stay on the site and actually read through any topics that interest them.
+</p>
+<p>
+  I'm really enjoying using this new templating system because it makes my work go much quicker. It was actually very fast to write out this post and have Jekyll push out a new page that has everything all taken care of. This mean I can focus solely on my content, and 
+  can feel assured that all the formatting and styling will be applied in a predictable manner. I look forward to learning Rails now that I have gotten a very basic taste of how a web framework can help simplify and streamline your workflow.
+</p>

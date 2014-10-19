@@ -1,0 +1,12 @@
+# Site settings
+title: Shiraj Ganguly - Web Development
+email: shirajganguly@gmail.com
+description: "Shiraj Ganguly's web development blog and portfolio."
+baseurl: ""
+url: "http://www.shirajganguly.com"
+twitter_username: shirajg
+github_username:  shirajg
+
+# Build settings
+markdown: kramdown
+permalink: /:title
