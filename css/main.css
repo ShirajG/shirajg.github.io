@@ -519,6 +519,10 @@ header h1{
 #post{
   width:100%;
 }
+#post p{
+  width:95%;
+}
+
 
 
 }
