@@ -2,7 +2,7 @@
 *{
   padding:0;
   margin:0;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 body{
   background-image: url(/images/debut_dark.png);
@@ -24,6 +24,7 @@ body{
   line-height: 25px;
   font-family: 'Cardo',serif;
   color:#FFFFFF;
+  box-sizing: content-box;
 }
 .bordered:after{
   background-color: #FF9300;
@@ -257,6 +258,7 @@ header h1{
   line-height: 75px;
   font-family: 'Cardo',serif;
   color:#FFFFFF;
+  box-sizing: content-box;
 }
 .last_name{
   font-family: 'Open Sans', sans-serif;
@@ -307,11 +309,11 @@ nav li a:hover{
   line-height: 25px;
   font-family: 'Cardo',serif;
   color:#FFFFFF;
+  box-sizing: content-box;
 }
 .padded:after{
   background-color: #FF9300;
-  content: "Normal + 25px padding";
-  display: block;
+  content: "";
   position: absolute;
   top: 25px;
   left:25px;
