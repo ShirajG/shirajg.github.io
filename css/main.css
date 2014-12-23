@@ -340,6 +340,9 @@ nav li a:hover{
   font-family: 'Cardo', serif;
   font-weight: 400;
 }
+#post .inline-link{
+  display: inline-block;
+}
 #post h1, #post h4, #post h5{
   text-align: center;
 }
