@@ -342,6 +342,7 @@ nav li a:hover{
 }
 #post .inline-link{
   display: inline-block;
+  text-indent: 0;
 }
 #post h1, #post h4, #post h5{
   text-align: center;
