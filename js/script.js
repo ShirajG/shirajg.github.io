@@ -9,14 +9,17 @@ var portrait = $('.portrait');
 technical.hide();
 cultural.hide();
 
-techMenu.click(function () {
+techMenu.click(function (event) {
+  event.preventDefault();
   technical.slideToggle('fast');
   cultural.hide();
   techMenu.addClass('jquery');
   cultureMenu.removeClass('jquery');
   about.removeClass('jquery');
 });
-cultureMenu.click(function () {
+cultureMenu.click(function (event) {
+  event.preventDefault();
+  technical.slideToggle('fast');
   cultural.slideToggle('fast');
   technical.hide();
   cultureMenu.addClass('jquery');
