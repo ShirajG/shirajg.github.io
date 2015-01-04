@@ -1,3 +1,5 @@
+require(['/js/jquery.min.js'])
+
 $(document).ready(function(){
   var techMenu = $(".menus li:first-child"),
   cultureMenu = $(".menus li:nth-child(2)"),
