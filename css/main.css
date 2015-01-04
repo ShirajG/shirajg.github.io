@@ -195,7 +195,6 @@ header h1{
   height: 100%;
   margin: 15px auto;
   box-shadow: 0 0 5px 1px rgba(0,0,0,0.4);
-  border-radius: 15px;
 }
 .menus{
   position: absolute;
