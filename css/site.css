@@ -3156,7 +3156,9 @@ Copyright (c) 2014 Daniel Eden
   -webkit-animation-name: slideOutUp;
           animation-name: slideOutUp;
 }
-@font-face {
+.my-fa-linkedin:before {
+  content: "\f0e1";
+}@font-face {
   font-family: 'Cardo';
   font-style: normal;
   font-weight: 400;
