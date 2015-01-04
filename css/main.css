@@ -7,6 +7,9 @@
 body{
   background-image: url(/images/debut_dark.png);
 }
+.hidden{
+  display: none;
+}
 .braces{
   font-family: 'Open Sans', sans-serif;
   font-size: 2em;
