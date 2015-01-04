@@ -7,9 +7,6 @@ require(['jquery','dropDown','ajaxLinks'],function(jquery,dropDown,ajaxLinks){
     $cultural = $('#cultural'),
     $links = $('#technical a, #cultural a, #about')
 
-    $technical.hide()
-    $cultural.hide()
-
     $techMenu.click(function (event) {
       event.preventDefault()
       $technical.slideToggle('fast')

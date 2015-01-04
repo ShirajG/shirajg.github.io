@@ -3194,6 +3194,9 @@ Copyright (c) 2014 Daniel Eden
 body{
   background-image: url(/images/debut_dark.png);
 }
+.hidden{
+  display: none;
+}
 .braces{
   font-family: 'Open Sans', sans-serif;
   font-size: 2em;
@@ -3254,7 +3257,7 @@ body{
   width:150px;
   position: relative;
   left: 50%;
-  margin-left: -90px;
+  margin-left: -75px;
   margin-top: 35px;
   border: 2px solid #106776;
   border-radius: 100%;
