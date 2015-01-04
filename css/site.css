@@ -3729,15 +3729,18 @@ nav li a:hover{
   max-width: 80%;
   margin: 0 auto;
 }
-.project .title{
+.project .title {
   text-decoration: none;
   color: black;
   opacity: 0.7;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  margin-bottom: 8px;
 }
-#post .project a:hover{
+.project a{
+  display: inline-block;
+  margin-bottom: 15px;
+}
+.project a:hover{
   text-decoration: none;
 }
 @media only screen and (max-width: 480px) {
