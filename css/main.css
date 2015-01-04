@@ -513,21 +513,16 @@ nav li a:hover{
   }
 }
 @media only screen and (min-width : 300px) and (max-width : 480px) {
-  
-header h1{
-  position: relative;
-  top: 35%;
-  margin-top: -20px;
-  font-size: 1.35em;
-}
-
-#post{
-  width:100%;
-}
-#post p{
-  width:95%;
-}
-
-
-
+  header h1{
+    position: relative;
+    top: 35%;
+    margin-top: -20px;
+    font-size: 1.35em;
+  }
+  #post{
+    width:100%;
+  }
+  #post p{
+    width:95%;
+  }
 }

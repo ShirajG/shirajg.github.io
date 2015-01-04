@@ -1,0 +1,32 @@
+.projects{
+  margin: 0 auto;
+}
+.project{
+  margin-bottom: 30px;
+}
+.project img{
+  display: block;
+  margin: 0 auto;
+  max-width: 400px;
+}
+.project .description{
+  font-size: .8em;
+  max-width: 80%;
+  margin: 0 auto;
+}
+.project .title{
+  text-decoration: none;
+  color: black;
+  opacity: 0.7;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 8px;
+}
+#post .project a:hover{
+  text-decoration: none;
+}
+@media only screen and (max-width: 480px) {
+  .projects{
+    width: 100%;
+  }
+}
