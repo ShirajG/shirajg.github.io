@@ -3744,4 +3744,7 @@ nav li a:hover{
   .projects{
     width: 100%;
   }
+  .project img{
+    max-width: 300px;
+  }
 }
