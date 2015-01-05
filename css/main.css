@@ -528,4 +528,9 @@ nav li a:hover{
   #post p{
     width:95%;
   }
+  .menus li {
+    text-align: center;
+    margin: 0 1%;
+  }
+
 }
