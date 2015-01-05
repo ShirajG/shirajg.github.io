@@ -1,5 +1,5 @@
-function getViaAjax(event){
-    $.get(event.target.href, function(response){
+function getViaAjax(target){
+    $.get(target, function(response){
         newPost = $(response).filter('#post')
         $('#post').replaceWith(newPost)
     })

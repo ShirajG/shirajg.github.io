@@ -1,5 +1,6 @@
 require(['jquery','dropDown','ajaxLinks'],function(jquery,dropDown,ajaxLinks){
   $(document).ready(function(){
+
     var $techMenu = $(".menus li:first-child"),
     $cultureMenu = $(".menus li:nth-child(2)"),
     $about = $(".menus li:last-child"),
@@ -7,6 +8,12 @@ require(['jquery','dropDown','ajaxLinks'],function(jquery,dropDown,ajaxLinks){
     $cultural = $('#cultural'),
     $links = $('#technical a, #cultural a, #about')
 
+    // Enables navigating through history with
+    // Back/Forward buttons
+    $(window).on('popstate',function(event){
+      getViaAjax(location.pathname)
+    })
+    
     $techMenu.click(function (event) {
       event.preventDefault()
       $technical.slideToggle('fast')
@@ -32,7 +39,8 @@ require(['jquery','dropDown','ajaxLinks'],function(jquery,dropDown,ajaxLinks){
     })
     $links.click(function(event){
       event.preventDefault()
-      getViaAjax(event);
+      history.pushState(null,null,event.target.href)
+      getViaAjax(event.target.href);
     })
   })
 })
