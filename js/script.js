@@ -1,12 +1,12 @@
 require(['jquery','dropDown','ajaxLinks'],function(jquery,dropDown,ajaxLinks){
   $(document).ready(function(){
 
-    var $techMenu = $(".menus li:first-child"),
-    $cultureMenu = $(".menus li:nth-child(2)"),
-    $about = $(".menus li:last-child"),
+    var $techMenu = $("#tech"),
+    $cultureMenu = $("#culture"),
+    $home = $("#home"),
     $technical = $('#technical'),
     $cultural = $('#cultural'),
-    $links = $('#technical a, #cultural a, #about')
+    $links = $('#technical a, #cultural a, #home')
 
     // Enables navigating through history with
     // Back/Forward buttons
@@ -18,18 +18,18 @@ require(['jquery','dropDown','ajaxLinks'],function(jquery,dropDown,ajaxLinks){
       event.preventDefault()
       $technical.slideToggle('fast')
       $cultural.hide()
-      toggleActive([$techMenu,$cultureMenu,$about])
+      toggleActive([$techMenu,$cultureMenu,$home])
     })
     $cultureMenu.click(function (event) {
       event.preventDefault()
       $cultural.slideToggle('fast')
       $technical.hide()
-      toggleActive([$cultureMenu,$techMenu,$about])
+      toggleActive([$cultureMenu,$techMenu,$home])
     })
-    $about.click(function () {
+    $home.click(function () {
       $technical.hide()
       $cultural.hide()
-      toggleActive([$about,$cultureMenu,$techMenu])
+      toggleActive([$home,$cultureMenu,$techMenu])
     })
     $technical.click(function (){
       $technical.slideUp('fast')

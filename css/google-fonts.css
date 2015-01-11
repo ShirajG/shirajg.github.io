@@ -1,10 +1,4 @@
 @font-face {
-  font-family: 'Cardo';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Cardo'), local('Cardo-Regular'), url(http://fonts.gstatic.com/s/cardo/v8/vjI-nu0OQ4awNWMtISxB9w.ttf) format('truetype');
-}
-@font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;

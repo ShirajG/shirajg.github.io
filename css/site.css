@@ -3159,12 +3159,6 @@ Copyright (c) 2014 Daniel Eden
 .my-fa-linkedin:before {
   content: "\f0e1";
 }@font-face {
-  font-family: 'Cardo';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Cardo'), local('Cardo-Regular'), url(http://fonts.gstatic.com/s/cardo/v8/vjI-nu0OQ4awNWMtISxB9w.ttf) format('truetype');
-}
-@font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;
@@ -3214,7 +3208,7 @@ body{
   height:75px;
   text-align: center;
   line-height: 25px;
-  font-family: 'Cardo',serif;
+  font-family: 'Open Sans',serif;
   color:#FFFFFF;
   box-sizing: content-box;
 }
@@ -3348,7 +3342,7 @@ body{
   font-size: 1em;
   height: 30px;
   padding: 4px 15px 6px 15px;
-  font-family: 'Cardo', serif;
+  font-family: 'Open Sans', serif;
 }
 #footer a{
   color:rgba(0,0,0,.4);
@@ -3358,7 +3352,10 @@ body{
   color: #00DDFF;
 }
 .graph{
-  width: 100%;
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 550px;
 }
 header{
   position: relative;
@@ -3447,7 +3444,7 @@ header h1{
   height:75px;
   text-align: center;
   line-height: 75px;
-  font-family: 'Cardo',serif;
+  font-family: 'Open Sans',serif;
   color:#FFFFFF;
   box-sizing: content-box;
 }
@@ -3498,7 +3495,7 @@ nav li a:hover{
   height:75px;
   text-align: center;
   line-height: 25px;
-  font-family: 'Cardo',serif;
+  font-family: 'Open Sans',serif;
   color:#FFFFFF;
   box-sizing: content-box;
 }
@@ -3513,7 +3510,7 @@ nav li a:hover{
 }
 #post{
   margin: 0px auto;
-  font-family: 'Cardo', serif;
+  font-family: 'Open Sans', serif;
   font-weight: 300;
   font-size: 1.1em;
   background-image: url(../images/debut_light.png);
@@ -3528,7 +3525,7 @@ nav li a:hover{
   color:#67BFF1;
   transition: color .2s;
   text-align: center;
-  font-family: 'Cardo', serif;
+  font-family: 'Open Sans', serif;
   font-weight: 400;
 }
 #post .inline-link{
@@ -3547,8 +3544,8 @@ nav li a:hover{
   margin-top: 30px;
   margin-bottom: 25px;
   padding-bottom: 30px;
-  font-family: 'Cardo', serif;
-  border-bottom: 2px solid rgba(0,0,0,0.4);
+  font-family: 'Open Sans', serif;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 
 }
 #post h4 span {
@@ -3558,7 +3555,7 @@ nav li a:hover{
   padding: 0 15px;
 }
 #post h5{
-  font-family: 'Cardo', serif;
+  font-family: 'Open Sans', serif;
   font-weight: 400;
   margin-top: 10px;
   font-size: 1.3em;
@@ -3612,7 +3609,7 @@ nav li a:hover{
 #quote{
   width:70%;
   margin: 2em auto;
-  font-family: 'Cardo',serif;
+  font-family: 'Open Sans',serif;
   background-color: white;
   padding: 5px 20px;
   padding-bottom: 15px;
@@ -3664,7 +3661,7 @@ nav li a:hover{
   height: 100%;
   padding: 20px;
   background-image: url(../images/debut_light.png);
-  font-family: 'Cardo', serif;
+  font-family: 'Open Sans', serif;
   font-size: 1.2em;
   text-indent: 15px;
   box-shadow: 0 3px 5px 5px rgba(0,0,0,0.4);
