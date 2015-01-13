@@ -1,0 +1,74 @@
+---
+layout: post
+---
+        <h4><span>Postgres Setup</span></h4>
+        <p>A lot of students ask me about the steps needed to configure Postgresql for use with Ubuntu, and I figured it happens often enough that I would write out a little how-to here on my site. The basics are pretty easy but there are a few tricky points to navigate. </p>
+        <p>
+          First we're gonna need to install postgres and its GUI admin tool pgadmin3:
+        <div class="code">
+            <p>
+                sudo apt-get install postgresql postgresql-contrib pgadmin3
+            </p>
+        </div>
+        </p>
+        <p>
+            Next, we need to log into our fresh postgres installation and set a password for the administrative user 'postgres'.
+            <div class="code">
+                <p>
+                    sudo -u postgres psql postgres
+                </p>
+                <p>
+                    \password postgres
+                </p>
+            </div>
+        </p>
+        <p>
+            Enter a new password, and then enter \q to exit psql.
+        </p>
+        <p>
+            The next thing we need to do is to create a user that will be creating our databases. This can be done with the following command:
+            <div class="code">
+                <p>
+                    createuser --interactive
+                </p>
+            </div>
+        </p>
+        <p>
+            Go ahead and give yourself superuser access. This enables you to create databases in postgres without having to log in as the postgres user.
+        </p>
+        <p>
+            We're almost done now, all that's left is to 
+            allow users to log in. We can do this by changing the settings in the pg_hba.conf file.
+            <div class="code">
+                <p>
+                    sudo (whatever text editor) /etc/postgresql/(pg version)/main/pg_hba.conf
+                </p>
+            </div>
+        </p>    
+        <p>
+            In this file we have to change the line:
+            <div class="code">
+                <p>
+                # Database administrative login by Unix domain socket<br>
+                local   all     postgres     peer
+                </p> 
+            </div>
+        </p>
+        <p>
+            To the following:
+            <div class="code">
+                <p>
+                # Database administrative login by Unix domain socket<br>
+                local   all     postgres     trust
+                </p> 
+            </div>
+        </p>
+        <p>
+            Now just restart postgres, and you should be all set!
+            <div class="code">
+                <p>
+                sudo /etc/init.d/postgresql reload 
+                </p>
+            </div>
+        </p>
+        
