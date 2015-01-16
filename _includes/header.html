@@ -19,24 +19,24 @@
       <li><a id='culture' href="">CULTURAL POSTS</a></li>
     </ul>
 </header>
+
 <div id="content">
   <ul id="technical" class='hidden'>
-    <li><a href="/Sorting/">Sorting</a></li>
-    <li><a href="/CSS_Box_Model/">CSS Box Model</a>
-    <li><a href="/JavaScript/">JavaScript</a></li>
-    <li><a href="/Classes/">Classes</a></li>
-    <li><a href="/Inheritance/">Inheritance</a></li>
-    <li><a href="/SQL/">SQL</a></li>
-    <li><a href="/Site_Update/">Site Upgrade</a></li>
-    <li><a href="/Vim/">Vim</a></li>
-    <li><a href="/Postgres/">Postgres</a></li>
-
+    {% for post in site.posts %}
+      {% if post.category == 'tech' %}
+        <li>
+          <a href="{{ post.url }}">{{post.title}}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
   </ul>
   <ul id="cultural" class="hidden">
-    <li><a href="/Learning/">Learning</a></li>
-    <li><a href="/Global_Access/">Global Access</a></li>
-    <li><a href="/Pairing/">Pairing</a></li>
-    <li><a href="/Conflict/">Conflict</a></li>
-    <li><a href="/Questions/">Questions</a></li>
+    {% for post in site.posts %}
+      {% if post.category == 'culture' %}
+        <li>
+          <a href="{{ post.url }}">{{post.title}}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
   </ul>       
 </div>
