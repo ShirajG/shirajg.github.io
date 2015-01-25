@@ -7,48 +7,24 @@ layout: default
         <img class="portrait" src="/images/headshot.jpg" alt="">
     </div>
     <p>
-      Welcome to my blog! I'm a web developer with experience in Ruby, Rails, and Javascript development. I'm fascinated by the world of technology and am going to post about all the things that I find interesting about it on this blog. Please feel free to check out some of my projects as well!
+      Welcome to my blog! I'm a web developer with experience in Ruby, Rails, and Javascript development.
+      I use this blog to write some of my thoughts on tech from time to time. Please feel free to check out some of my projects as well!
     </p>
     <div class="projects">
 
-        <div class="project">
-            <h3 class='title'>Trackmaster Test</h3>
-            <a href="//github.com/ShirajG/sound_quiz">view code</a>
-            <a href="//trackmaster.me"> 
-                <img src="/images/trackmaster.jpg" alt="Trackmaster Test">
-            </a>
-            <div class="description">
-                <p>
-                    A music quiz built using Rails and the iTunes API. Try and guess what song is playing based on a short clip, and try to set a high score based on your speed and accuracy!
-                </p>    
-            </div>
-        </div>
+   {% for post in site.posts %}
+      {% if post.category == 'project' %}
 
-        <div class="project">
-            <h3 class='title'>Puppy Love</h3>
-                <a href="//github.com/ShirajG/puppy-love">view code</a>
-            <a href="//puppy-love.herokuapp.com"> 
-                <img src="/images/puppy-love.jpg" alt="Puppy Love">
-            </a>
-            <div class="description">
-                <p>
-                A social networking site made for dogs! This was created as a fun way to learn Rails. It features user profiles, a social wall, as well as private messaging. 
-                </p>
-            </div>
+      <div class="project">
+        <h3 class='title'>{{post.title}}</h3>
+        <a href='{{post.repo}}'>view code</a>
+        <a href='{{post.site_location}}'><img src='{{post.image}}' alt='{{post.title}}'></a>
+        <div class='description'>
+          {{post.content}}
         </div>
-
-        <div class="project">
-                <h3 class='title'>256</h3>
-                <a href="//github.com/ShirajG/2048_clone">view code</a>
-            <a href="//js256.herokuapp.com">
-                <img src="/images/256.jpg" alt="256: A 2048 clone">
-            </a>
-            <div class="description">
-               <p>
-                   A clone of the popular game '2048'. Made with vanilla JavaScript, no jQuery or other libraries. A frontend MVC design was used.
-               </p>
-            </div>
-        </div>
-
+      </div>
+      {% endif %}
+    {% endfor %}
+ 
     </div>
   </div>

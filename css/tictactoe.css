@@ -1,0 +1,104 @@
+body{
+  margin: 0;
+  padding:0;
+  background-color: #F6F6F6;
+}
+h2{
+  text-align: center;
+  position: relative;
+  font-size: 2em;
+  left: -2.5%;
+  font-family: 'Rock Salt', cursive;
+  color: #A2D9FF; 
+  text-shadow: 1px 1px 3px rgba(233,60,75,0.4);
+}
+#app{
+  width:55%;
+  max-width: 500px;
+  margin: 30px auto;
+}
+.X {
+  color: #D52F37;
+}
+.O {
+  color: #52C2EB;
+}
+.tile::before{
+  display: block;
+  content: "";
+  height: 50%;
+}
+.tile span{
+  vertical-align: top;
+  line-height: 0;
+}
+.tile{
+  cursor: pointer;
+  font-family: 'Rock Salt', cursive;
+  vertical-align:top;
+  text-align: center;
+  font-size: 2.5em;
+  display: inline-block;
+  width: 30%;
+  height: 15%;
+  max-height: 150px;
+}
+._4{
+  border: 1px solid rgba(0,0,0,0.5);
+}
+._1, ._7{
+  border-left: 1px solid rgba(0,0,0,0.5);
+  border-right: 1px solid rgba(0,0,0,0.5);
+}
+._3, ._5{
+  border-top: 1px solid rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.info-area{
+  position: relative;
+  text-align: center;
+  color: rgba(0,0,0,0.5);
+  width:75%;
+  padding: 10px;
+  margin: 30px auto;
+  left: -5%;
+  font-family: 'Open Sans';
+  border: 2px solid rgba(0,0,0,0.3);
+  border-radius: 15px;
+}
+.info-area input{
+  outline: 0;
+  margin-top: 15px;
+  padding:5px 20px;
+  border: 0;
+  color: white;
+  font-size: 1em;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: #DADADA
+}
+.info-area input:hover{
+  background-color: #6DB8D5
+}
+.errors{
+  position: relative;
+  font-family: 'Open Sans';
+  margin: 30px auto;
+  left: -5%;
+  text-align: center;
+  color:red;
+}
+@media only screen and (max-width: 480px){
+  #app{
+    padding-left: 15px;
+    width:100%;
+  }
+}
