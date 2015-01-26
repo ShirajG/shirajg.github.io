@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>256: The Game</title>
+    <script type="text/javascript" src="js/256/controller.js"></script>
+    <script type="text/javascript" src="js/256/256.js"></script>
+    <script type="text/javascript" src="js/256/view.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/256/256.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+</head>
+<body>
+    <div class="animated bounceInDown">
+        <h2 class="center">256</h2>
+    </div>
+    <div id="board" class="animated bounceInDown">
+    </div>
+    <div id='dark-overlay' ></div>
+    <div id="loss-modal" class="modal">
+      <form class="center">
+        <p class="center">no moves left</p>
+        <input type='submit' value="restart" class="button center">
+      </form>
+    </div>
+    <div id='win-modal' class="modal">
+      <form class="center">
+        <p class="center">You win!</p>
+        <input type='submit' value="play again!" class="button center"> 
+      </form>
+    </div>
+    <script type="text/javascript" src="js/256/main.js"></script>
+</body>
+</html>
