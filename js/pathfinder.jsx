@@ -115,7 +115,7 @@ var Game = React.createClass({
         res = new Board(newBoard).getMax(newBoard.length - 1,newBoard.length - 1)
         this.setState({
            board : newBoard,
-           val : res.val,
+           sum: res.val,
            path: res.path
         })
     },
