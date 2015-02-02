@@ -82,42 +82,7 @@ Board.prototype = {
         }
         return newBoard
     },
-    // displayBoard: function  () {
-    //     var height = this.board.length
-    //     var length = this.board[0].length
-
-    //     var frag = document.createDocumentFragment()
-    //     this.board.forEach(function (row, row_index) {
-    //         var _row = document.createElement('div')
-    //         _row.setAttribute('class','row')
-    //         row.forEach(function (cell, col_index) {
-    //             var div = document.createElement('div')
-    //             div.setAttribute('class', 'cell')
-    //             div.id = '_' + row_index + col_index
-    //             div.innerHTML = ""+cell
-    //             _row.appendChild(div)
-    //         })
-    //         frag.appendChild(_row)
-    //     })
-
-    //     var targetDOMNode = document.getElementById('app') 
-    //     targetDOMNode.appendChild(frag)
-
-    // },
     clearCache: function () {
         this.cache = this.generateEmptyBoard(this.board)
-    }//,
-    // displayPath: function(){
-    //     var answer = this.getMax(this.board.length - 1,this.board.length - 1 )
-    //     answer.path.forEach(function (el) {
-    //         document.getElementById('_'+el.join('')).className += " active"
-    //     })
-    //     var answerInfo = document.createDocumentFragment()
-    //     var stats = document.createElement('p')
-    //     stats.innerHTML = "The largest sum is: " + answer.val
-    //     answerInfo.appendChild(stats)
-    //     var targetDOMNode = document.getElementById('app') 
-    //     targetDOMNode.appendChild(answerInfo)
-    // }
+    }
 };
-
