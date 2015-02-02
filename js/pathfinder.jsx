@@ -110,14 +110,18 @@ var Game = React.createClass({
     },
     setCell: function(row,col){
         var newVal = parseInt(prompt("Enter a new value"))
-        var newBoard = this.state.board
-        newBoard[row][col] = newVal
-        res = new Board(newBoard).getMax(newBoard.length - 1,newBoard.length - 1)
-        this.setState({
-           board : newBoard,
-           sum: res.val,
-           path: res.path
-        })
+        if(isNaN(newVal)){
+          alert("Please enter a valid number");
+        } else {
+          var newBoard = this.state.board
+          newBoard[row][col] = newVal 
+          res = new Board(newBoard).getMax(newBoard.length - 1,newBoard.length - 1)
+          this.setState({
+             board : newBoard,
+             sum: res.val,
+             path: res.path
+          })
+        }
     },
     render: function(){
         var parent = this
