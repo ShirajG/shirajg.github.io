@@ -3734,8 +3734,11 @@ nav li a:hover{
   max-width: 100%;
 }
 .project .description{
-  font-size: .8em;
+  font-size: .9em;
   margin: 0 auto;
+}
+#post p.project-description{
+  width: 80%;
 }
 .project .title {
   text-decoration: none;
