@@ -8,18 +8,6 @@
 // path.
 //
 //==================================
-function pathParser (array) {
-    var res = []
-    for(var i=0; i < array.length-1; i++){
-        if(array[i][0] < array[i+1][0]){
-            res.push("D")
-        }
-        else{
-            res.push("R")
-        }
-    }
-    return res
-}
 function Board(arr){
     this.board = arr
     this.cache = this.generateEmptyBoard(arr)
