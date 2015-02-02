@@ -1,0 +1,35 @@
+#app{
+  width: 75%;
+  margin: 0 auto;
+}
+.game{
+  text-align: center;
+}
+.cell{
+  min-width: 45px;
+  min-height: 45px;
+  margin-left: -1px;
+  border: 1px solid gray;
+  font-family: monospace;
+  overflow-x: hidden;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #BEDDDD;
+}
+.cell::before{
+  display: block;
+  content: ' ';
+  white-space: pre;
+  height: 50%;
+}
+.row{
+  margin-bottom: -5px;
+}
+.active{
+  color: white;
+  background-color: #5AC874;
+}
+button{
+  margin-top: 25px; 
+}
