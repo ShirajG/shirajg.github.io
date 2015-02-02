@@ -2,16 +2,22 @@
   margin: 0 auto;
 }
 .project{
+  max-width: 60%;
+  margin: 0 auto;
   margin-bottom: 30px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.4);
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  padding: 20px 0px;
 }
 .project img{
   display: block;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 100%;
 }
 .project .description{
   font-size: .8em;
-  max-width: 80%;
   margin: 0 auto;
 }
 .project .title {
@@ -30,9 +36,6 @@
 }
 @media only screen and (max-width: 480px) {
   .projects{
-    width: 100%;
-  }
-  .project img{
-    max-width: 300px;
+    width: 95%;
   }
 }
