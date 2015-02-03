@@ -3758,4 +3758,8 @@ nav li a:hover{
   .projects{
     width: 95%;
   }
+  .project{
+    max-width: 100%;
+    width:100%;
+  }
 }
