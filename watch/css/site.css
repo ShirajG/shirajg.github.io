@@ -31,7 +31,7 @@ article p{
 }
 .container{
 	position: absolute;
-	background-image: url("../img/rolex_face.jpg");
+	background-image: url("/watch/img/rolex_face.jpg");
 	background-repeat: no-repeat;
 	min-height: 378px;
 	max-height: 378px;
