@@ -1,6 +1,8 @@
-p*{
+@import url(http://fonts.googleapis.com/css?family=Cardo:400,700);
+*{
 	margin: 0;
 	padding: 0;
+	font-family: 'Cardo', serif;
 }
 header{
 	position:relative;
@@ -18,8 +20,11 @@ article h2{
 	margin-top: 25px;
 }
 article p{
+	font-size: .85em;
 	text-indent: 2.5em;
 	margin-top: 10px;
+	text-align: justify;
+	line-height: 1.25em;
 }
 .center{
 	text-align: center;
@@ -39,12 +44,14 @@ article p{
 }
 #logo{
 	top:0;
-	margin-left: 10px;
+	/*margin-left: 10px;*/
+	margin-top: 60px;
 	left: 50%;
-	height: 50%;
+	width:350px;
+	height: auto;
 	position:absolute;
-	/*top:0;*/
-	/*right:0;*/
+	transform: translate( 25%, 0);
+
 }
 .hand{
 	position: absolute;
@@ -52,19 +59,44 @@ article p{
 	margin-top: 18%;
 	transform: rotate(-85deg);
 }
-.fancy-font{
-	font-family: 'Merriweather', serif;
-}
 @media only screen and (min-width: 800px) and (max-width: 1280px){
-
 }
-@media only screen and (min-width : 320px) and (max-width : 800px) {
-	/*.container{
+@media only screen and (max-width : 799px) {
+	header{
+		height:250px;
+	}
+	.container{
+		right:50%;
 		margin: 0 auto;
 		zoom: 0.60;
 	}
-	#logo{		
-		margin-left: -10px;
+	#logo{
+		margin-top: 40px;
+		left:50%;
+		width:200px;
+		height: auto;
+		transform: translate( 25%, 0);
+	}
+}
+@media only screen and (max-width: 600px ){
+	header{
+		padding-top: 35vh;
+		height: 70vh;
+		position:relative;
+	}
+	.container{
+		margin: 0 auto;
+		display: block;
+		position: static;
+	}
+	#logo{
+		position: absolute;
+		margin-top: 12vh;
 		left: 50%;
-	}*/
+		transform: translate(-55%, 0);
+	}
+	.hand{
+		margin-left: 22.5%;
+		margin-top: 16%;
+	}
 }

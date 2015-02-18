@@ -30,7 +30,7 @@ $(function(){
     var minutes = currentDate.getMinutes();
     var seconds = currentDate.getSeconds();
 
-    hoursPos += hours * 30;
+    hoursPos += (hours * 30) + (minutes/2);
     $hours.rotate(hoursPos);
     minutesPos += minutes * 6;
     $minutes.rotate(minutesPos);
@@ -41,19 +41,17 @@ $(function(){
     // checks to see if the minute hand
     // or hour hand need to move
     setInterval(function(){
-        secondsPos += 6
+        secondsPos += 0.06;
         $seconds.rotate(secondsPos);
 
-        if(secondsPos % 360 === 275 ){
-            minutesPos += 6;
-            $minutes.rotate(minutesPos);
-        }
+        minutesPos += 0.001;
+        $minutes.rotate(minutesPos);
+    },10)
 
-        if(minutesPos % 360 === 275 && secondsPos % 360 === 275){
-            hoursPos += 30;
-            $hours.rotate(hoursPos);
-        }
-    },1000)
+    setInterval(function(){
+        hoursPos += .001;
+        $hours.rotate(hoursPos);
+    },1200)
 
     $(window).scroll(function(e){
         scrolled = true;
