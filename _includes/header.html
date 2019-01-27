@@ -1,9 +1,11 @@
-<header class='bounceInDown animated'>
-  <div class="overlay"></div>
-  <h1><span class="braces">{</span> Hello World! <span class="braces">}</span></h1>
+<header>
   <nav>
-    <div class="name">SHIRAJ <span class="last_name"><b>GANGULY</b></span></div>
-    <ul>
+    <div class="left-cell"></span>
+      <div class="name-container">
+        <span class="first-name">SHIRAJ</span> <span class="last_name"><b>GANGULY</b></span>
+      </div>
+    </div>
+    <ul class="right-cell">
       <li><a href="//www.github.com/shirajG"><i class="fa fa-github fa-fw"></i></a></li>
       <li>
         <a href="//www.linkedin.com/in/shirajG">
@@ -13,30 +15,8 @@
       <li><a href="mailto:Shirajganguly@gmail.com"><i class="fa fa-envelope-o fa-fw"></i></a></li>
     </ul>
   </nav>
-    <ul class="menus">
-      <li><a id='home' href="/">HOME</a></li>
-      <li><a id='tech' href="">TECH POSTS</a></li>
-      <li><a id='culture' href="">CULTURAL POSTS</a></li>
-    </ul>
+  <div class="overlay">
+    <h1><span class="left-brace braces">{</span>Hello World!<span class="braces">}</span></h1>
+  </div>
 </header>
 
-<div id="content">
-  <ul id="technical" class='hidden'>
-    {% for post in site.posts %}
-      {% if post.category == 'tech' %}
-        <li>
-          <a href="{{ post.url }}">{{post.title}}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-  <ul id="cultural" class="hidden">
-    {% for post in site.posts %}
-      {% if post.category == 'culture' %}
-        <li>
-          <a href="{{ post.url }}">{{post.title}}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>

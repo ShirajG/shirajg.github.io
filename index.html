@@ -2,28 +2,33 @@
 layout: default
 ---
 
-  <div id="post" >
-    <div class='fadeIn animated'>
-        <img class="portrait" src="/images/headshot.jpg" alt="">
+<div id="post" >
+  <div class="container">
+    <div class="intro-graf">
+      <p> I'm a web developer with experience in Ruby, Rails, and Javascript. You can see some of my projects below.</p>
     </div>
-    <p>
-      Welcome to my blog! I'm a web developer with experience in Ruby, Rails, and Javascript development.
-      I use this blog to write some of my thoughts on tech from time to time. Please feel free to check out some of my projects as well!
-    </p>
+
     <div class="projects">
-
-   {% for post in site.posts %}
+      {% for post in site.posts %}
       {% if post.category == 'project' %}
-
-      <div class="project">
-        <h3 class='title'>{{post.title}}</h3>
-        <a href='{{post.repo}}'>view code</a>
-        <a href='{{post.site_location}}'><img src='{{post.image}}' alt='{{post.title}}'></a>
-        <div class='description'>
-          {{post.content}}
+        <div class="project-container">
+          <a href='{{post.site_location}}' class="project">
+            <div class="project-info text-center">
+              <h3>{{post.title}} </h3>
+            </div>
+            <div class="project-image">
+              <img src='{{post.image}}' alt='{{post.title}}'>
+            </div>
+            <div class='description row'>
+              <div class="col-md-offset-2 col-md-8">
+                {{post.content}}
+              </div>
+            </div>
+          </a>
+          <a href="{{post.repo}}">View Code</a>
         </div>
-      </div>
       {% endif %}
-    {% endfor %}
+      {% endfor %}
     </div>
   </div>
+</div>
