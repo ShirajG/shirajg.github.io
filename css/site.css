@@ -4,28 +4,28 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 300;
-  src: local('Open Sans Light'), local('OpenSans-Light'), url(http://fonts.gstatic.com/s/opensans/v10/DXI1ORHCpsQm3Vp6mXoaTYnF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v10/DXI1ORHCpsQm3Vp6mXoaTYnF5uFdDttMLvmWuJdhhgs.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(http://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Press Start 2P';
   font-style: normal;
   font-weight: 400;
-  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(http://fonts.gstatic.com/s/pressstart2p/v4/8Lg6LX8-ntOHUQnvQ0E7o3uGXJk6cuEylToZ-uuaubQ.ttf) format('truetype');
+  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(//fonts.gstatic.com/s/pressstart2p/v4/8Lg6LX8-ntOHUQnvQ0E7o3uGXJk6cuEylToZ-uuaubQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Ubuntu Mono';
   font-style: normal;
   font-weight: 400;
-  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(http://fonts.gstatic.com/s/ubuntumono/v6/ViZhet7Ak-LRXZMXzuAfkZ0EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'), url(//fonts.gstatic.com/s/ubuntumono/v6/ViZhet7Ak-LRXZMXzuAfkZ0EAVxt0G0biEntp43Qt6E.ttf) format('truetype');
 }
 
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(//weloveiconfonts.com/api/?family=fontawesome);
 
 body{
   background-image: url(/images/debut_dark.png);
