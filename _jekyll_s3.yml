@@ -1,0 +1,3 @@
+s3_id: <% ENV['PERSONAL_WEBSITE_ACCESS_KEY'] %>
+s3_secret: <% ENV['PERSONAL_WEBSITE_SECRET']%>
+s3_bucket: shirajganguly.com
